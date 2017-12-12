@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { VoteModule } from './routes/vote/vote.module';
+import { GuardsModule } from './guards/guards.module';
 
 @NgModule({
   declarations: [

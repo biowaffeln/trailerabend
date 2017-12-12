@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceModule } from '../../services/auth-service/auth-service.module';
+import { GuardsModule } from '../../guards/guards.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AuthServiceModule } from '../../services/auth-service/auth-service.modu
     LoginRoutingModule,
     MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule,
     FormsModule, ReactiveFormsModule,
-    AuthServiceModule
+    AuthServiceModule,
+    GuardsModule
   ],
   declarations: [LoginComponent]
 })
