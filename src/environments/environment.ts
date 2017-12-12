@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCQz-iDPyaeyDSwa74_CpWRrShts4f5_yw",
+    authDomain: "filmrausch-trailerabend.firebaseapp.com",
+    databaseURL: "https://filmrausch-trailerabend.firebaseio.com",
+    projectId: "filmrausch-trailerabend",
+    storageBucket: "filmrausch-trailerabend.appspot.com",
+    messagingSenderId: "423650946004"
+  }
 };

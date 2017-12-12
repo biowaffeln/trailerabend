@@ -1,4 +1,10 @@
 .mat-toolbar {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: bold;
+  }
+
 }

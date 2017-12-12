@@ -1,17 +1,17 @@
 <div class="login">
   <mat-card>
-      <mat-card-title>
-        Willkommen zum Trailerabend!
-      </mat-card-title>
-      <mat-card-content>
-        <p>Gib deinen Namen ein, um zur Umfrage zu kommen: </p>
-        <mat-form-field color="accent">
-          <input matInput placeholder="Name" [formControl]="nameForm">
-          <mat-error>bitte gib einen Namen ein</mat-error>
-        </mat-form-field>
-      </mat-card-content>
+    <mat-card-title>
+      Willkommen zum Trailerabend!
+    </mat-card-title>
+    <mat-card-content>
+      <p>Gib deinen Namen ein, um zur Umfrage zu kommen: </p>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Name" [formControl]="nameForm">
+        <mat-error>bitte gib einen Namen ein</mat-error>
+      </mat-form-field>
+    </mat-card-content>
     <mat-card-actions>
-      <button mat-button color="accent" [disabled]="nameForm.invalid" (click)="signIn(nameForm.value)">einloggen</button>
+      <button mat-button color="accent" [disabled]="nameForm.invalid" (click)="signIn(nameForm.value)">los geht's!</button>
     </mat-card-actions>
   </mat-card>
 </div>

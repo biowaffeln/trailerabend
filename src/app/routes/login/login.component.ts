@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../../services/auth-service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   nameForm: FormControl;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
@@ -19,8 +22,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  signIn(name: string) {
-    console.log(`Oh hi, ${name}!`);
+  async signIn(name: string) {
+    await this.authService.anonymousLogin(name);
+    this.router.navigate(['vote']);
   }
 
 }

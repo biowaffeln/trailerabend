@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './routes/login/login.module';
 import { MatToolbarModule } from '@angular/material';
-
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { VoteModule } from './routes/vote/vote.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { MatToolbarModule } from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    LoginModule, VoteModule,
     AppRoutingModule,
-    LoginModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]
