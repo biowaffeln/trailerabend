@@ -2,6 +2,9 @@
   position: relative;
   z-index: 1;
 
+  display: flex;
+  justify-content: center;
+
   h1 {
     font-family: 'Catamaran', sans-serif;
     font-weight: bold;
