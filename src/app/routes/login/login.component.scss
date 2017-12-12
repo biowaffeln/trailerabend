@@ -33,6 +33,11 @@
         width: 80%;
         font-size: 1.3em;
         align-self: center;
+
+        .mat-error {
+          line-height: 1.25em;
+        }
+
       }
     }
 
