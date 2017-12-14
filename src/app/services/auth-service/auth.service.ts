@@ -13,11 +13,16 @@ export class AuthService {
   }
 
   async anonymousLogin(name: string): Promise<any> {
-    await this.afAuth.auth.signInAnonymously();
+    const signIn = await this.afAuth.auth.signInAnonymously();
     this.afAuth.auth.currentUser.updateProfile({
       displayName: name,
-      photoURL: ""
+      photoURL: ''
     });
+    return signIn;
+  }
+
+  emailLogin(email: string, password: string): Promise<any> {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout(): Promise<any> {
