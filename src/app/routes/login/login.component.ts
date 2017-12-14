@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../../services/firestore.service';
-import { take } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
   async signIn(name: string) {
     await this.authService.anonymousLogin(name);
     this.authService.authState.pipe(
-      take(1)
-    )
-    .subscribe(user => {
-      this.db.set(`user/${user.uid}`, { name });
-    });
+      take(1),
+      map(user => user.uid)
+    ).subscribe(uid => {
+      this.db.set(`user/${uid}`, { name });
+    })
     this.router.navigate(['vote']);
   }
 
