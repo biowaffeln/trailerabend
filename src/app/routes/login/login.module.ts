@@ -7,6 +7,7 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } fr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceModule } from '../../services/auth-service/auth-service.module';
 import { GuardsModule } from '../../guards/guards.module';
+import { FirestoreModule } from '../../services/firestore/firestore.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { GuardsModule } from '../../guards/guards.module';
     LoginRoutingModule,
     MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule,
     FormsModule, ReactiveFormsModule,
+    FirestoreModule,
     AuthServiceModule,
     GuardsModule
   ],

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FirestoreService } from '../firestore.service';
 
 @NgModule({
   imports: [
@@ -8,6 +9,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     AngularFirestoreModule
   ],
   declarations: [],
-  providers: []
+  providers: [FirestoreService]
 })
 export class FirestoreModule { }
