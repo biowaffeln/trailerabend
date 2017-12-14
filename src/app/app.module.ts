@@ -10,6 +10,7 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { VoteModule } from './routes/vote/vote.module';
 import { GuardsModule } from './guards/guards.module';
+import { AdminModule } from './routes/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { GuardsModule } from './guards/guards.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    LoginModule, VoteModule,
+    LoginModule, VoteModule, AdminModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],

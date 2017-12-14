@@ -1,0 +1,42 @@
+.admin {
+  width: 960px;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  .mat-card {
+
+    width: 500px;
+    margin: 50px 0;
+
+    .mat-card-title {
+      font: 2em 'Catamaran', sans-serif;
+      line-height: 1.25em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .mat-card-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+  
+      .mat-form-field {
+        width: 80%;
+        font-size: 1.3em;
+        align-self: center; 
+
+        .mat-error {
+          line-height: 1.25em;
+        }
+      }
+    }
+
+    .mat-card-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: -16px;
+    }
+  }
+}

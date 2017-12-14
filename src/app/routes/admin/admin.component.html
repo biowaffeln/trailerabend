@@ -1,0 +1,22 @@
+<div class="admin">
+  <mat-card>
+    <mat-card-title>
+      Oh hi, Mark!
+    </mat-card-title>
+    <form [formGroup]="adminForm" (ngSubmit)="loginAdmin(adminForm.value)">
+      <mat-card-content>
+        <mat-form-field color="accent">
+          <input matInput type="text" placeholder="e-mail" formControlName="email">
+          <mat-error *ngIf="adminForm.get('email').invalid">bitte ausfüllen</mat-error>
+        </mat-form-field>
+        <mat-form-field color="accent">
+          <input matInput type="password" placeholder="password" formControlName="pass">
+          <mat-error *ngIf="adminForm.get('pass').hasError('required')">bitte ausfüllen</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button type="submit" [disabled]="adminForm.invalid">los geht's!</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
