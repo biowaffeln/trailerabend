@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
 import { User } from '../user.model';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-user-list',
@@ -9,13 +10,15 @@ import { User } from '../user.model';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[];
+  userDataSource: MatTableDataSource<User>;
+  displayedCols = ['userName', 'id'];
 
   constructor(private db: FirestoreService) { }
 
   ngOnInit() {
+    this.userDataSource = new MatTableDataSource();
     this.db.col$<User>('users').subscribe(users => {
-      this.users = users;
+      this.userDataSource.data = users;
     });
   }
 
