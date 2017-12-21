@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from '../../../services/firestore.service';
-import { User } from '../user.model';
 import { MatTableDataSource } from '@angular/material';
+import { FirestoreService } from '../../../../services/firestore.service';
+import { User } from '../../../../models/user.model';
 
 @Component({
   selector: 'app-user-list',
@@ -21,5 +21,4 @@ export class UserListComponent implements OnInit {
       this.userDataSource.data = users;
     });
   }
-
 }

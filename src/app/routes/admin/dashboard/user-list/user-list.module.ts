@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserListComponent } from './user-list/user-list.component';
-import { MatCardModule, MatTableModule } from '@angular/material';
+import { UserListComponent } from './user-list.component';
+import { MatTableModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -12,4 +12,4 @@ import { MatCardModule, MatTableModule } from '@angular/material';
   declarations: [UserListComponent],
   exports: [UserListComponent]
 })
-export class UserModule { }
+export class UserListModule { }
