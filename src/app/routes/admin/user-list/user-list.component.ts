@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
-import { FirestoreService } from '../../../../services/firestore.service';
-import { User } from '../../../../models/user.model';
+import { User } from '../../../models/user.model';
+import { FirestoreService } from '../../../services/firestore.service';
 
 @Component({
   selector: 'app-user-list',

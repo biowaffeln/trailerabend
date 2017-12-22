@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminGuard } from '../../guards/admin.guard';
 import { NoAdminGuard } from '../../guards/no-admin.guard';
 import { MoviesComponent } from './movies/movies.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/movies', component: MoviesComponent, canActivate: [AdminGuard]
+  },
+  {
+    path: 'admin/user-list', component: UserListComponent, canActivate: [AdminGuard]
   }
 ];
 
