@@ -27,7 +27,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
     )
     .subscribe(movies => {
       this.movieDataSource.data = movies;
-      console.log(this.movieDataSource.data);
       this.loaded = true;
     });
     
