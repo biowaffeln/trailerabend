@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.userDataSource = new MatTableDataSource();
     this.loading = true;
-    this.db.col$<User>('users').subscribe(users => {
+    this.db.col$<User>('/users').subscribe(users => {
       this.userDataSource.data = users;
       this.loading = false;
     });

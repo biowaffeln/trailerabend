@@ -19,7 +19,7 @@ export class MovieListComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.movieDataSource = new MatTableDataSource();
-    this.db.col$<Movie>('movies').subscribe(movies => {
+    this.db.col$<Movie>('/movies').subscribe(movies => {
       this.movieDataSource.data = movies;
       this.loading = false;
     });
