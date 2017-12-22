@@ -1,0 +1,4 @@
+<mat-progress-bar mode="indeterminate" *ngIf="data; else content"></mat-progress-bar>
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
