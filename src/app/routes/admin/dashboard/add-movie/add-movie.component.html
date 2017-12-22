@@ -3,18 +3,23 @@
     Filmdaten laden
   </mat-card-title>
   <mat-card-content>
-    <mat-form-field color="accent">
-      <textarea rows="5" [formControl]="jsonInput" matInput></textarea>
-      <mat-error *ngIf="jsonInput.hasError('required')">
-        Darf nicht leer sein
-      </mat-error>
-      <mat-error *ngIf="jsonInput.hasError('parseError') && !jsonInput.hasError('required')">
-        Kein gültiges JSON
-      </mat-error>
-      <mat-error *ngIf="jsonInput.hasError('notMovie')">
-        JSON muss vom Typ Movie Array sein
-      </mat-error>
-    </mat-form-field>
-    <button mat-button [disabled]="jsonInput.invalid">hinzufügen</button>
+    <form [formGroup]="addMovieForm">
+      <mat-form-field color="accent">
+        <textarea rows="5" formControlName="json" matInput></textarea>
+        <mat-error *ngIf="addMovieForm.get('json').hasError('required')">
+          Darf nicht leer sein
+        </mat-error>
+        <mat-error *ngIf="addMovieForm.get('json').hasError('parseError') && !addMovieForm.get('json').hasError('required')">
+          Kein gültiges JSON
+        </mat-error>
+        <mat-error *ngIf="addMovieForm.get('json').hasError('notMovie') && !addMovieForm.get('json').hasError('required')">
+          JSON muss vom Typ Movie Array sein
+        </mat-error>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-button type="button" color="accent" [disabled]="addMovieForm.invalid || saving" (click)="save(addMovieForm)">hinzufügen</button>
+        <button mat-button type="button" type="reset">zurücksetzen</button>
+      </mat-card-actions>
+    </form>
   </mat-card-content>
 </mat-card>

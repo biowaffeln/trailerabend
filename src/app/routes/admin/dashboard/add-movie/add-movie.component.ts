@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, ValidationErrors } from '@angular/forms';
-import { AbstractControl } from '@angular/forms/src/model';
+import { FormControl, Validators, ValidationErrors, AbstractControl, FormGroup } from '@angular/forms';
 import { Movie } from '../../../../models/movie.model';
+import { FirestoreService } from '../../../../services/firestore.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -10,12 +10,15 @@ import { Movie } from '../../../../models/movie.model';
 })
 export class AddMovieComponent implements OnInit {
 
-  jsonInput: FormControl;
+  addMovieForm: FormGroup;
+  saving = false;
 
-  constructor() { }
+  constructor(private db: FirestoreService) { }
 
   ngOnInit() {
-    this.jsonInput = new FormControl('', [Validators.required, this.movieValidator]);
+    this.addMovieForm = new FormGroup({
+      json: new FormControl('', [Validators.required, this.movieValidator]),
+    });
   }
 
   movieValidator = (control: AbstractControl): ValidationErrors | null => {
@@ -32,8 +35,25 @@ export class AddMovieComponent implements OnInit {
       return false;
     }
     return obj.every(movie => {
-      return typeof movie.link === 'string' && typeof movie.name === 'string';
+      return (
+        typeof movie.trailerlink === 'string' &&
+        typeof movie.name === 'string'
+      );
     });
+  }
+
+  async save(form: FormGroup) {
+
+    this.saving = true;
+
+    if (form.invalid) { return; }
+    const movieData = JSON.parse(form.value.json) as Movie[];
+    const dbPromises = movieData.map(movie => {
+      return this.db.add<Movie>('/movies', movie);
+    });
+    await Promise.all(dbPromises);
+    form.reset();
+    this.saving = false;
   }
 
 }

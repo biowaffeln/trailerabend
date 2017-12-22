@@ -1,4 +1,4 @@
 export interface Movie {
   name: string;
-  link: string;
+  trailerlink: string;
 }
