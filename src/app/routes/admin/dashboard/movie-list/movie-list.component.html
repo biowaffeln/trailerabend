@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>
+    Movies
+  </mat-card-title>
+  <mat-card-content>
+    <mat-table [dataSource]="movieDataSource">
+      <ng-container [matColumnDef]="displayedCols[0]">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{movie.name}} </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="displayedCols[1]">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{movie.id}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedCols"></mat-header-row>
+      <mat-row *matRowDef="let myRowData; columns: displayedCols"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
