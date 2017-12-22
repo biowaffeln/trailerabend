@@ -7,12 +7,14 @@ import { MatCardModule, MatInputModule, MatFormFieldModule, MatButtonModule } fr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { GuardsModule } from '../../guards/guards.module';
+import { MoviesModule } from './movies/movies.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     DashboardModule,
+    MoviesModule,
     GuardsModule,
     MatCardModule, MatInputModule, MatFormFieldModule, MatInputModule, MatButtonModule,
     FormsModule, ReactiveFormsModule,
