@@ -23,3 +23,11 @@ div, p, span {
   max-width: 90%;
   margin: 0 auto;
 }
+
+.margin {
+  margin-bottom: 30px;
+}
+
+.margin:first-child {
+  margin-top: 30px;
+}
