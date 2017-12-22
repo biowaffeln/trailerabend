@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>
+    Filmdaten laden
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field color="accent">
+      <textarea rows="5" [formControl]="jsonInput" matInput></textarea>
+      <mat-error *ngIf="jsonInput.hasError('required')">
+        Darf nicht leer sein
+      </mat-error>
+      <mat-error *ngIf="jsonInput.hasError('parseError') && !jsonInput.hasError('required')">
+        Kein gültiges JSON
+      </mat-error>
+      <mat-error *ngIf="jsonInput.hasError('notMovie')">
+        JSON muss vom Typ Movie Array sein
+      </mat-error>
+    </mat-form-field>
+    <button mat-button [disabled]="jsonInput.invalid">hinzufügen</button>
+  </mat-card-content>
+</mat-card>
