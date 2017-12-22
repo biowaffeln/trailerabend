@@ -14,21 +14,21 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   movieDataSource: MatTableDataSource<Movie>;
   displayedCols = ['userName', 'id'];
-  loading: boolean;
+  loaded = false;
 
   private onDestroy$ = new Subject<void>();
 
   constructor(private db: FirestoreService) { }
 
   ngOnInit() {
-    this.loading = true;
     this.movieDataSource = new MatTableDataSource();
     this.db.col$<Movie>('/movies').pipe(
       takeUntil(this.onDestroy$)
     )
     .subscribe(movies => {
       this.movieDataSource.data = movies;
-      this.loading = false;
+      console.log(this.movieDataSource.data);
+      this.loaded = true;
     });
     
   }

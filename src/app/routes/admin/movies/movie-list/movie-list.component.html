@@ -3,7 +3,7 @@
     Filme
   </mat-card-title>
   <mat-card-content>
-    <app-loader [loading]="loading">
+    <app-loader [data]="loaded">
       <mat-table [dataSource]="movieDataSource">
         <ng-container [matColumnDef]="displayedCols[0]">
           <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>

@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   userDataSource: MatTableDataSource<User>;
   displayedCols = ['userName', 'voted'];
-  loading: boolean;
+  loaded = false;
 
   private onDestroy$ = new Subject<void>();
 
@@ -22,13 +22,12 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userDataSource = new MatTableDataSource();
-    this.loading = true;
     this.db.col$<User>('/users').pipe(
       takeUntil(this.onDestroy$)
     )
     .subscribe(users => {
       this.userDataSource.data = users;
-      this.loading = false;
+      this.loaded = true;
     });
   }
 
