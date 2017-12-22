@@ -3,9 +3,11 @@
     Filme
   </mat-card-title>
   <app-loader [data]="movies">
-    <mat-card-content *ngIf="movies">
-      {{movies.length}} Filme hinzugefügt
-    </mat-card-content>
+    <ng-template>
+      <mat-card-content>
+        {{movies.length}} Filme hinzugefügt
+      </mat-card-content>
+    </ng-template>
   </app-loader>
   <mat-card-actions>
     <a mat-button>Details</a>

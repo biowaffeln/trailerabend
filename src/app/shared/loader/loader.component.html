@@ -1,4 +1,4 @@
-<mat-progress-bar mode="indeterminate" *ngIf="!data; else content"></mat-progress-bar>
-<ng-template #content>
-  <ng-content></ng-content>
+<mat-progress-bar mode="indeterminate" *ngIf="!data; else contentRef"></mat-progress-bar>
+<ng-template>
+  <ng-content *ngTemplateOutlet="contentRef"></ng-content>
 </ng-template>

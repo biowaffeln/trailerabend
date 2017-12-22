@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-loader',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoaderComponent implements OnInit {
 
   @Input() data: any;
+  @ContentChild(TemplateRef) contentRef;
   
   constructor() { }
 

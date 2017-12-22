@@ -3,10 +3,12 @@
     Teilnehmer
   </mat-card-title>
   <app-loader [data]="users">
-    <mat-card-content *ngIf="users">
-      <p>{{users.length}} Teilnehmer registriert</p>
-      <p>{{voted(users).length}} Teilnehmer gewählt</p>
-    </mat-card-content>
+    <ng-template>
+      <mat-card-content>
+        <p>{{users.length}} Teilnehmer registriert</p>
+        <p>{{voted(users).length}} Teilnehmer gewählt</p>
+      </mat-card-content>
+    </ng-template>
   </app-loader>
   <mat-card-actions>
     <a mat-button>Details</a>
