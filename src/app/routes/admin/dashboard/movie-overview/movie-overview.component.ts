@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from '../../../../services/firestore.service';
+import { Movie } from '../../../../models/movie.model';
 
 @Component({
   selector: 'app-movie-overview',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieOverviewComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[];
+
+  constructor(private db: FirestoreService) { }
 
   ngOnInit() {
+    this.db.col$<Movie>('/movies').subscribe(movies => {
+      this.movies = movies;
+    });
   }
 
 }

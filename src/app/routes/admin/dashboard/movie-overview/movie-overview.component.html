@@ -1,3 +1,11 @@
-<p>
-  movie-overview works!
-</p>
+<mat-card>
+  <mat-card-title>
+    Filme
+  </mat-card-title>
+  <mat-card-content *ngIf="movies">
+    {{movies.length}} Filme hinzugefügt
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button>Details</a>
+  </mat-card-actions>
+</mat-card>
