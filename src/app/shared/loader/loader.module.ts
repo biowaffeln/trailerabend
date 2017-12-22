@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material';
     CommonModule,
     MatProgressBarModule
   ],
-  declarations: [LoaderComponent]
+  declarations: [LoaderComponent],
+  exports: [LoaderComponent]
 })
 export class LoaderModule { }
