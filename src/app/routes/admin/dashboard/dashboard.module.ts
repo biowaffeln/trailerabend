@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import { MatButtonModule } from '@angular/material';
+import { UserOverviewModule } from './user-overview/user-overview.module';
+import { MovieOverviewModule } from './movie-overview/movie-overview.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule,
+    UserOverviewModule,
+    MovieOverviewModule,
   ],
   declarations: [DashboardComponent]
 })
