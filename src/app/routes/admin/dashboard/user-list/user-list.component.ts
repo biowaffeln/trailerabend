@@ -11,7 +11,7 @@ import { User } from '../../../../models/user.model';
 export class UserListComponent implements OnInit {
 
   userDataSource: MatTableDataSource<User>;
-  displayedCols = ['userName', 'id'];
+  displayedCols = ['userName', 'voted'];
 
   constructor(private db: FirestoreService) { }
 
