@@ -5,7 +5,7 @@
   <app-loader [data]="movies">
     <ng-template>
       <mat-card-content>
-        {{movies.length}} Filme hinzugefügt
+        {{movies.length | i18nPlural: moviePlural }} hinzugefügt
       </mat-card-content>
     </ng-template>
   </app-loader>

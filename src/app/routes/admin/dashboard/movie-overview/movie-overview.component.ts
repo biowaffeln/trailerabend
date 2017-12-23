@@ -13,6 +13,8 @@ export class MovieOverviewComponent implements OnInit, OnDestroy {
 
   movies: Movie[];
   private onDestroy$ = new Subject<void>();
+  moviePlural:
+    { [k: string]: string } = { '=0': 'Keine Filme', '=1': '1 Film', 'other': '# Filme' };
 
   constructor(private db: FirestoreService) { }
 
@@ -20,9 +22,9 @@ export class MovieOverviewComponent implements OnInit, OnDestroy {
     this.db.col$<Movie>('/movies').pipe(
       takeUntil(this.onDestroy$)
     )
-    .subscribe(movies => {
-      this.movies = movies;
-    });
+      .subscribe(movies => {
+        this.movies = movies;
+      });
   }
 
   ngOnDestroy(): void {

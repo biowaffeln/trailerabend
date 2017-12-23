@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { VoteModule } from './routes/vote/vote.module';
 import { GuardsModule } from './guards/guards.module';
 import { AdminModule } from './routes/admin/admin.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminModule } from './routes/admin/admin.module';
     MatToolbarModule,
     LoginModule, VoteModule, AdminModule,
     AppRoutingModule,
+    RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
