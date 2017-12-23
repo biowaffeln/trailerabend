@@ -31,7 +31,7 @@ export class AddMovieComponent implements OnInit {
   }
 
   isMovieArray(obj: any): obj is Movie[] {
-    if (!Array.isArray(obj)) {
+    if (!Array.isArray(obj) || !obj.length) {
       return false;
     }
     return obj.every(movie => {
@@ -44,9 +44,9 @@ export class AddMovieComponent implements OnInit {
 
   async save(form: FormGroup) {
 
+    if (form.invalid) { return; }
     this.saving = true;
 
-    if (form.invalid) { return; }
     const movieData = JSON.parse(form.value.json) as Movie[];
     const dbPromises = movieData.map(movie => {
       return this.db.add<Movie>('/movies', movie);

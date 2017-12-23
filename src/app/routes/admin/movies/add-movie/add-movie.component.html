@@ -5,7 +5,8 @@
   <mat-card-content>
     <form [formGroup]="addMovieForm">
       <mat-form-field color="accent">
-        <textarea rows="5" formControlName="json" matInput></textarea>
+        <textarea rows="5" formControlName="json" matInput placeholder="JSON hier einfügen" matTextareaAutosize matAutosizeMinRows="3"
+          matAutosizeMaxRows="10"></textarea>
         <mat-error *ngIf="addMovieForm.get('json').hasError('required')">
           Darf nicht leer sein
         </mat-error>
