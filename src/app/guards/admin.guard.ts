@@ -11,8 +11,8 @@ export class AdminGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
+    next?: ActivatedRouteSnapshot,
+    state?: RouterStateSnapshot): Observable<boolean> {
     return this.authService.authState.pipe(
       map(user => !!user && user.email !== null),
       tap(admin => {

@@ -10,8 +10,8 @@ export class VisitorGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
+    next?: ActivatedRouteSnapshot,
+    state?: RouterStateSnapshot): Observable<boolean> {
     return this.authService.authState.pipe(
       map(user => user === null),
       tap(isVisitor => {
