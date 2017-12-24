@@ -1,5 +1,6 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MovieVote } from '../../../models/movie.model';
 
 @Component({
   selector: 'app-voting-card',
@@ -15,10 +16,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class VotingCardComponent implements OnInit, ControlValueAccessor {
 
-  vote: string;
+  vote: MovieVote;
   propagateChange = (_: any) => {};
 
-  writeValue(value: string | null) {
+  writeValue(value: MovieVote) {
     if (value !== undefined) {
       this.vote = value;
     }

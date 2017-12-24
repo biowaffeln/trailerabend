@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       take(1),
       map(user => user.uid)
     ).subscribe(uid => {
-      this.db.set<User>(`/users/${uid}`, { name, voted: false });
+      this.db.set<User>(`/users/${uid}`, { name, voted: false, votes: {} });
     })
     this.router.navigate(['vote']);
   }
