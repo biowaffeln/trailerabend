@@ -6,11 +6,11 @@
     </ng-container>
   </mat-card-title>
   <mat-card-content>
-    <button mat-button (click)="toggleVote(FOR)" [class.for]="movie.vote === FOR">
+    <button (click)="toggleVote(FOR)" [class.for]="movie.vote === FOR">
       dafür
       <span role="img" aria-label="Thumbs Up">👍</span>
     </button>
-    <button mat-button (click)="toggleVote(AGAINST)" [class.against]="movie.vote === AGAINST">
+    <button (click)="toggleVote(AGAINST)" [class.against]="movie.vote === AGAINST">
       dagegen
       <span role="img" aria-label="Thumbs Down">👎</span>
     </button>
