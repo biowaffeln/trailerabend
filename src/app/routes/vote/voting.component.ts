@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth-service/auth.service';
 import * as firebase from 'firebase/app';
 import { take, takeUntil, tap } from 'rxjs/operators';
 import { FirestoreService } from '../../services/firestore.service';
-import { Movie, MovieVote } from '../../models/movie.model';
+import { Movie, VoteMovie } from '../../models/movie.model';
 import { Subject } from 'rxjs';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Vote } from '../../models/votes.model';
@@ -18,6 +18,7 @@ import { User } from '../../models/user.model';
 export class VotingComponent implements OnInit, OnDestroy {
 
   user: User;
+  uid: string;
   votingForm: FormGroup;
   private onDestroy$ = new Subject<void>();
 
@@ -31,11 +32,19 @@ export class VotingComponent implements OnInit, OnDestroy {
     });
     this.votingForm.valueChanges.pipe(
       takeUntil(this.onDestroy$)
-    ).subscribe(val => console.log(val));
+    ).subscribe(({ movies }: { movies: VoteMovie[] }) => {
+      const votes = movies.reduce((acc, movie) => {
+        acc[movie.id] = movie.vote
+        return acc;
+      }, {});
+      this.db.update<User>(`users/${this.uid}`, { votes });
+    });
 
     this.authService.authState.pipe(
+      tap(auth => this.uid = auth.uid),
       switchMap(auth => this.db.doc$<User>(`/users/${auth.uid}`)),
       tap(user => this.user = user),
+      take(1),
       switchMap(() => this.db.col$<Movie>('/movies')),
       takeUntil(this.onDestroy$)
     )
@@ -43,9 +52,9 @@ export class VotingComponent implements OnInit, OnDestroy {
         this.votingForm.setControl('movies',
           new FormArray(
             movies.map(movie => {
-              const vote: MovieVote = {
+              const vote: VoteMovie = {
                 ...movie,
-                vote: Vote.NEUTRAL
+                vote: this.user.votes[movie.id] ? this.user.votes[movie.id] : Vote.NEUTRAL 
               }
               return new FormControl(vote);
             })

@@ -1,6 +1,6 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MovieVote } from '../../../models/movie.model';
+import { VoteMovie } from '../../../models/movie.model';
 import { Vote } from '../../../models/votes.model';
 
 @Component({
@@ -17,7 +17,7 @@ import { Vote } from '../../../models/votes.model';
 })
 export class VotingCardComponent implements OnInit, ControlValueAccessor {
 
-  movie: MovieVote;
+  movie: VoteMovie;
   FOR = Vote.FOR;
   AGAINST = Vote.AGAINST;
   propagateChange = (_: any) => { };
@@ -36,7 +36,7 @@ export class VotingCardComponent implements OnInit, ControlValueAccessor {
     this.propagateChange(this.movie);
   }
 
-  writeValue(value: MovieVote) {
+  writeValue(value: VoteMovie) {
     if (value !== undefined) {
       this.movie = value;
     }

@@ -7,6 +7,6 @@ export interface Movie {
   trailerlink: string;
 }
 
-export interface MovieVote extends Movie {
+export interface VoteMovie extends Movie {
   vote: Vote;
 }
