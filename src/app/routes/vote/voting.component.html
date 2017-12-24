@@ -2,7 +2,7 @@
   <form [formGroup]="votingForm">
     <fieldset formArrayName="movies">
       <ng-container *ngFor="let movie of movies.controls; let i = index">
-        <input [formControlName]="i">
+        <app-voting-card [formControlName]="i"></app-voting-card>
       </ng-container>
     </fieldset>
   </form>
