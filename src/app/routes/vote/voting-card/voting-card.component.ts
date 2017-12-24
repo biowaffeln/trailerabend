@@ -27,6 +27,12 @@ export class VotingCardComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
   }
 
+  imdbLink(movie: VoteMovie) {
+    const title = movie.name.split("&").join("and");
+    const year = movie.year;
+    return `http://www.imdb.com/search/title?release_date=${year},&title=${title}`;
+  }
+
   toggleVote(vote: Vote) {
     if (vote === this.movie.vote) {
       this.movie.vote = Vote.NEUTRAL;

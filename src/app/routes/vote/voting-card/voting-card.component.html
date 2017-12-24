@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="mat-elevation-z2">
   <mat-card-title>
     {{movie.name}}
     <ng-container *ngIf="movie.year">
@@ -15,4 +15,8 @@
       <span role="img" aria-label="Thumbs Down">👎</span>
     </button>
   </mat-card-content>
+  <mat-card-actions>
+    <a mat-button target="_blank" [href]="imdbLink(movie)">IMDb</a>
+    <a mat-button target="_blank" [href]="movie.trailerlink">Trailer</a>
+  </mat-card-actions>
 </mat-card>
