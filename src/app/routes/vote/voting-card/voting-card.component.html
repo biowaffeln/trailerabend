@@ -1,3 +1,18 @@
-<p>
-  {{vote.name}}
-</p>
+<mat-card>
+  <mat-card-title>
+    {{vote.name}}
+    <ng-container *ngIf="vote.year">
+      ({{vote.year}})
+    </ng-container>
+  </mat-card-title>
+  <mat-card-content>
+    <button mat-button>
+      dafür
+      <span role="img" aria-label="Thumbs Up">👍</span>
+    </button>
+    <button mat-button>
+      dagegen
+      <span role="img" aria-label="Thumbs Down">👎</span>
+    </button>
+  </mat-card-content>
+</mat-card>

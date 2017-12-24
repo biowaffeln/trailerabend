@@ -1,0 +1,17 @@
+.mat-card-title {
+  text-align: center;
+  font: 2em 'Catamaran', sans-serif;
+  font-weight: bold;
+}
+
+.mat-card-content {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background: #eee;
+    margin: 0 10px;
+    width: 120px;
+  }
+
+}

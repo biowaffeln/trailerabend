@@ -1,9 +1,9 @@
 <div class="margin center">
   <form [formGroup]="votingForm">
-    <fieldset formArrayName="movies">
-      <ng-container *ngFor="let movie of movies.controls; let i = index">
+    <div formArrayName="movies">
+      <div *ngFor="let movie of movies.controls; let i = index" class="margin">
         <app-voting-card [formControlName]="i"></app-voting-card>
-      </ng-container>
-    </fieldset>
+      </div>
+    </div>
   </form>
 </div>
