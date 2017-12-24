@@ -8,10 +8,10 @@ import { LoginModule } from './routes/login/login.module';
 import { MatToolbarModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { VoteModule } from './routes/vote/vote.module';
 import { GuardsModule } from './guards/guards.module';
 import { AdminModule } from './routes/admin/admin.module';
 import { RouterModule } from '@angular/router';
+import { VotingModule } from './routes/vote/voting.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,9 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    LoginModule, VoteModule, AdminModule,
+    LoginModule,
+    VotingModule,
+    AdminModule,
     AppRoutingModule,
     RouterModule,
     AngularFireModule.initializeApp(environment.firebase),

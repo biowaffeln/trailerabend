@@ -8,11 +8,11 @@ import { Subject } from 'rxjs';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-vote',
-  templateUrl: './vote.component.html',
-  styleUrls: ['./vote.component.scss']
+  selector: 'app-voting',
+  templateUrl: './voting.component.html',
+  styleUrls: ['./voting.component.scss']
 })
-export class VoteComponent implements OnInit, OnDestroy {
+export class VotingComponent implements OnInit, OnDestroy {
 
   user: firebase.User;
   votingForm: FormGroup;

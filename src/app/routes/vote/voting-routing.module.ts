@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VoteComponent } from './vote.component';
 import { UserGuard } from '../../guards/user.guard';
+import { VotingComponent } from './voting.component';
 
 const routes: Routes = [
   {
-    path: 'vote', component: VoteComponent, canActivate: [UserGuard]
+    path: 'vote', component: VotingComponent, canActivate: [UserGuard]
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VoteRoutingModule { }
+export class VotingRoutingModule { }
