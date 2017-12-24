@@ -33,6 +33,7 @@ export class VotingCardComponent implements OnInit, ControlValueAccessor {
     } else {
       this.movie.vote = vote;
     }
+    this.propagateChange(this.movie);
   }
 
   writeValue(value: MovieVote) {
