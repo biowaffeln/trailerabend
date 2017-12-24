@@ -12,6 +12,15 @@
     background: #eee;
     margin: 0 10px;
     width: 120px;
+    transition: background 0.5s;
+
+    &.for {
+      background: #B2FF59;
+    }
+    &.against {
+      background: #FF5252;
+    }
+
   }
 
 }
