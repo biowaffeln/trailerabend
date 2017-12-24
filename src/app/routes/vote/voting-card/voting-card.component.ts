@@ -16,12 +16,12 @@ import { MovieVote } from '../../../models/movie.model';
 })
 export class VotingCardComponent implements OnInit, ControlValueAccessor {
 
-  vote: MovieVote;
+  movie: MovieVote;
   propagateChange = (_: any) => {};
 
   writeValue(value: MovieVote) {
     if (value !== undefined) {
-      this.vote = value;
+      this.movie = value;
     }
   }
   
