@@ -6,6 +6,7 @@ import { VotingCardModule } from './voting-card/voting-card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VotingComponent } from './voting.component';
 import { VotingRoutingModule } from './voting-routing.module';
+import { LoaderModule } from '../../shared/loader/loader.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { VotingRoutingModule } from './voting-routing.module';
     VotingRoutingModule,
     VotingCardModule,
     FormsModule, ReactiveFormsModule,
+    LoaderModule,
     GuardsModule
   ],
   declarations: [VotingComponent]

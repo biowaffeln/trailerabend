@@ -9,6 +9,7 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Vote } from '../../models/votes.model';
 import { switchMap } from 'rxjs/operators/switchMap';
 import { User } from '../../models/user.model';
+import { LoaderType } from '../../shared/loader/loader.model';
 
 @Component({
   selector: 'app-voting',
@@ -20,6 +21,8 @@ export class VotingComponent implements OnInit, OnDestroy {
   user: User;
   uid: string;
   votingForm: FormGroup;
+  loaderType = LoaderType.SPINNER;
+  loaded = false;
   private onDestroy$ = new Subject<void>();
 
   constructor(private authService: AuthService, private db: FirestoreService) {
@@ -54,12 +57,13 @@ export class VotingComponent implements OnInit, OnDestroy {
             movies.map(movie => {
               const vote: VoteMovie = {
                 ...movie,
-                vote: this.user.votes[movie.id] ? this.user.votes[movie.id] : Vote.NEUTRAL 
+                vote: this.user.votes[movie.id] ? this.user.votes[movie.id] : Vote.NEUTRAL
               }
               return new FormControl(vote);
             })
           )
         );
+        this.loaded = true;
       });
   }
 

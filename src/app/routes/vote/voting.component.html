@@ -1,9 +1,13 @@
 <div class="margin center">
-  <form [formGroup]="votingForm">
-    <div formArrayName="movies">
-      <div *ngFor="let movie of movies.controls; let i = index" class="margin">
-        <app-voting-card [formControlName]="i"></app-voting-card>
-      </div>
-    </div>
-  </form>
+  <app-loader [type]="loaderType" [data]="loaded">
+    <ng-template>
+      <form [formGroup]="votingForm">
+        <div formArrayName="movies">
+          <div *ngFor="let movie of movies.controls; let i = index" class="margin">
+            <app-voting-card [formControlName]="i"></app-voting-card>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </app-loader>
 </div>
