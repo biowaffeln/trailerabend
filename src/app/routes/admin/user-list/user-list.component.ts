@@ -31,10 +31,6 @@ export class UserListComponent implements OnInit, OnDestroy {
       });
   }
 
-  updateVoted(event: MatSlideToggleChange, id: string) {
-    this.db.update(`/users/${id}`, { voted: event.checked });
-  }
-
   ngOnDestroy() {
     this.onDestroy$.next();
     this.onDestroy$.complete();
