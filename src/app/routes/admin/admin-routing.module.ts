@@ -6,6 +6,7 @@ import { AdminGuard } from '../../guards/admin.guard';
 import { NoAdminGuard } from '../../guards/no-admin.guard';
 import { MoviesComponent } from './movies/movies.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { LiveResultsComponent } from './live-results/live-results.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/user-list', component: UserListComponent, canActivate: [AdminGuard]
+  },
+  {
+    path: 'admin/live', component: LiveResultsComponent, canActivate: [AdminGuard]
   }
 ];
 

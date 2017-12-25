@@ -9,6 +9,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { GuardsModule } from '../../guards/guards.module';
 import { MoviesModule } from './movies/movies.module';
 import { UserListModule } from './user-list/user-list.module';
+import { LiveResultsModule } from './live-results/live-results.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { UserListModule } from './user-list/user-list.module';
     MoviesModule,
     UserListModule,
     GuardsModule,
+    LiveResultsModule,
     MatCardModule, MatInputModule, MatFormFieldModule, MatInputModule, MatButtonModule,
     FormsModule, ReactiveFormsModule,
   ],

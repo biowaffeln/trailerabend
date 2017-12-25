@@ -1,0 +1,25 @@
+<div class="margin center">
+  <mat-card>
+    <mat-card-title>
+      Live Ergebnisse!
+    </mat-card-title>
+    <mat-card-content>
+      <table>
+        <thead>
+          <td>Platz</td>
+          <td>Name</td>
+          <td>Dafür</td>
+          <td>Enthaltung</td>
+          <td>Dagegen</td>
+        </thead>
+        <tr *ngFor="let movie of movies; let i = index">
+          <td>{{i+1}}.</td>  
+          <td>{{movie.name}}</td>  
+          <td>{{movie.results.for}}</td>  
+          <td>{{movie.results.neutral}}</td>  
+          <td>{{movie.results.against}}</td>  
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

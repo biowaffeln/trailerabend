@@ -10,3 +10,11 @@ export interface Movie {
 export interface VoteMovie extends Movie {
   vote: Vote;
 }
+
+export interface ResultsMovie extends Movie {
+  results: {
+    for: number;
+    against: number;
+    neutral: number;
+  }
+}
