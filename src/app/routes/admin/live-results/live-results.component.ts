@@ -18,10 +18,14 @@ export class LiveResultsComponent implements OnInit {
   ngOnInit() {
     this.db.col$<User>('/users').pipe(
       flatMap(users => {
-        const results = users.reduce((acc, user) => {
+        const initial = {for: 0, against: 0, neutral: 0}
+        const userResults = users.reduce((acc, user) => {
+          if (!user.votes || Object.keys(user.votes).length === 0) {
+            return {};
+          }
           Object.keys(user.votes).forEach(movieId => {
             if (!acc[movieId]) {
-              acc[movieId] = { for: 0, against: 0, neutral: 0 };
+              acc[movieId] = initial;
             }
             acc[movieId][user.votes[movieId]]++;
           });
@@ -29,7 +33,11 @@ export class LiveResultsComponent implements OnInit {
         }, {});
         return this.db.col$<Movie>('/movies').pipe(
           map(movies => movies.map(movie => {
-            return { ...movie, results: results[movie.id] }
+            const results = userResults[movie.id];
+            return ({
+              ...movie,
+              results: results ? results : initial 
+            })
           }) as ResultsMovie[])
         );
       })
