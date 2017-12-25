@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list.component';
-import { MatTableModule, MatCardModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatSlideToggleModule } from '@angular/material';
 import { LoaderModule } from '../../../shared/loader/loader.module';
 
 @NgModule({
@@ -9,6 +9,7 @@ import { LoaderModule } from '../../../shared/loader/loader.module';
     CommonModule,
     MatCardModule,
     MatTableModule,
+    MatSlideToggleModule,
     LoaderModule
   ],
   declarations: [UserListComponent],
