@@ -18,7 +18,7 @@ export class LiveResultsComponent implements OnInit {
   ngOnInit() {
     this.db.col$<User>('/users').pipe(
       flatMap(users => {
-        const initial = {for: 0, against: 0, neutral: 0}
+        const initial = {for: 0, against: 0, neutral: 0};
         const userResults = users.reduce((acc, user) => {
           if (!user.votes || Object.keys(user.votes).length === 0) {
             return {};
