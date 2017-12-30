@@ -11,21 +11,20 @@ import { flatMap, map } from 'rxjs/operators';
 })
 export class LiveResultsComponent implements OnInit {
 
-  movies: ResultsMovie[]
+  movies: ResultsMovie[];
 
   constructor(private db: FirestoreService) { }
 
   ngOnInit() {
     this.db.col$<User>('/users').pipe(
       flatMap(users => {
-        const initial = {for: 0, against: 0, neutral: 0};
         const userResults = users.reduce((acc, user) => {
           if (!user.votes || Object.keys(user.votes).length === 0) {
             return {};
           }
           Object.keys(user.votes).forEach(movieId => {
             if (!acc[movieId]) {
-              acc[movieId] = initial;
+              acc[movieId] = { for: 0, against: 0, neutral: 0 };
             }
             acc[movieId][user.votes[movieId]]++;
           });
@@ -36,7 +35,7 @@ export class LiveResultsComponent implements OnInit {
             const results = userResults[movie.id];
             return ({
               ...movie,
-              results: results ? results : initial 
+              results: results ? results : { for: 0, against: 0, neutral: 0 }
             })
           }) as ResultsMovie[])
         );
