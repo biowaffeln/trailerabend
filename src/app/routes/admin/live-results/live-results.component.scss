@@ -1,0 +1,53 @@
+@import '../../../../styles.scss';
+.mat-card {
+  .mat-card-title {
+    font: 2em Catamaran;
+    font-weight: bold;
+    text-align: center;
+  }
+  .mat-card-content {
+    padding: 0 10px 35px;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+}
+
+.results {
+  border-collapse: collapse;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  td {
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  td:not(.name) {
+    text-align: center;
+  }
+  .name {
+    width: 200px;
+  }
+  thead {
+    tr {
+      font-weight: bold;
+      background-color: mat-color($filmrausch-primary, default);
+      td:first-child {
+        border-top-left-radius: 3px;
+      }
+      td:last-child {
+        border-top-right-radius: 3px;
+      }
+    }
+  }
+  tbody {
+    tr:nth-child(2n) {
+      background: #eee;
+    }
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 3px;
+    }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 3px;
+    }
+  }
+}
