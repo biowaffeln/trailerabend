@@ -1,14 +1,14 @@
 <div class="margin center">
   <app-loader [type]="spinner" [data]="loaded" *ngIf="user?.voted === false; else voted">
     <ng-template>
-      <form [formGroup]="votingForm" (ngSubmit)="finishVoting()">
+      <form [formGroup]="votingForm">
         <div formArrayName="movies">
           <div *ngFor="let movie of movies.controls; let i = index" class="margin">
             <app-voting-card [formControlName]="i"></app-voting-card>
           </div>
         </div>
         <div class="margin submit">
-          <button mat-raised-button type="submit">
+          <button mat-raised-button (click)="finishVoting()">
             Umfrage beenden
           </button>
         </div>
