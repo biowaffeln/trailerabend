@@ -1,7 +1,7 @@
 <div class="margin center">
-  <app-loader [type]="spinner" [data]="loaded">
+  <app-loader [type]="spinner" [data]="loaded" *ngIf="user?.voted === false; else voted">
     <ng-template>
-      <form [formGroup]="votingForm">
+      <form [formGroup]="votingForm" (ngSubmit)="finishVoting()">
         <div formArrayName="movies">
           <div *ngFor="let movie of movies.controls; let i = index" class="margin">
             <app-voting-card [formControlName]="i"></app-voting-card>
@@ -12,8 +12,13 @@
             Umfrage beenden
           </button>
         </div>
-
       </form>
     </ng-template>
   </app-loader>
+  <ng-template #voted>
+    <div class="voted-text">
+      <h1 class="voted-text__header">Danke für's Wählen, bis zum nächsten Trailerabend!</h1>
+      <span class="voted-text__emoji" role="img" aria-label="Party Popper">🎉</span>
+    </div>
+  </ng-template>
 </div>

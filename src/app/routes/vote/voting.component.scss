@@ -2,3 +2,17 @@
   display: flex;
   justify-content: center;
 }
+
+.voted-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .voted-text__header {
+    color: #ddd;
+    text-align: center;
+  }
+  .voted-text__emoji {
+    font-size: 3em;
+  }
+}

@@ -47,7 +47,6 @@ export class VotingComponent implements OnInit, OnDestroy {
       tap(auth => this.uid = auth.uid),
       switchMap(auth => this.db.doc$<User>(`/users/${auth.uid}`)),
       tap(user => this.user = user),
-      take(1),
       switchMap(() => this.db.col$<Movie>('/movies')),
       takeUntil(this.onDestroy$)
     )
@@ -69,6 +68,12 @@ export class VotingComponent implements OnInit, OnDestroy {
 
   get movies(): FormArray {
     return this.votingForm.get('movies') as FormArray;
+  }
+
+  finishVoting() {
+    this.db.update<User>(`users/${this.uid}`, {
+      voted: true
+    });
   }
 
   ngOnDestroy(): void {
