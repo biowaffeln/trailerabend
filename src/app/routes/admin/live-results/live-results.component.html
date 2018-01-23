@@ -3,27 +3,31 @@
     <mat-card-title>
       Live Ergebnisse!
     </mat-card-title>
-    <mat-card-content>
-      <table class="results mat-elevation-z4">
-        <thead>
-          <tr>
-            <td>Platz</td>
-            <td class="name">Name</td>
-            <td>Dafür</td>
-            <td>Enthaltung</td>
-            <td>Dagegen</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let movie of movies; let i = index">
-            <td>{{i+1}}.</td>
-            <td class="name">{{movie.name}}</td>
-            <td>{{movie.results.for}}</td>
-            <td>{{movie.results.neutral}}</td>
-            <td>{{movie.results.against}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </mat-card-content>
+    <app-loader [data]="movies" [type]="spinner">
+      <ng-template>
+        <mat-card-content>
+          <table class="results mat-elevation-z4">
+            <thead>
+              <tr>
+                <td>Platz</td>
+                <td class="name">Name</td>
+                <td>Dafür</td>
+                <td>Enthaltung</td>
+                <td>Dagegen</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of movies; let i = index">
+                <td>{{i+1}}.</td>
+                <td class="name">{{movie.name}}</td>
+                <td>{{movie.results.for}}</td>
+                <td>{{movie.results.neutral}}</td>
+                <td>{{movie.results.against}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </ng-template>
+    </app-loader>
   </mat-card>
 </div>

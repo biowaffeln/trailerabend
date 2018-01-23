@@ -3,6 +3,7 @@ import { FirestoreService } from '../../../services/firestore.service';
 import { Movie, ResultsMovie } from '../../../models/movie.model';
 import { User } from '../../../models/user.model';
 import { flatMap, map } from 'rxjs/operators';
+import { LoaderType } from '../../../shared/loader/loader.model';
 
 @Component({
   selector: 'app-live-results',
@@ -12,6 +13,7 @@ import { flatMap, map } from 'rxjs/operators';
 export class LiveResultsComponent implements OnInit {
 
   movies: ResultsMovie[];
+  spinner = LoaderType.SPINNER;
 
   constructor(private db: FirestoreService) { }
 
