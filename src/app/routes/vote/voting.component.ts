@@ -21,7 +21,7 @@ export class VotingComponent implements OnInit, OnDestroy {
   user: User;
   uid: string;
   votingForm: FormGroup;
-  loaderType = LoaderType.SPINNER;
+  spinner = LoaderType.SPINNER;
   loaded = false;
   private onDestroy$ = new Subject<void>();
 
