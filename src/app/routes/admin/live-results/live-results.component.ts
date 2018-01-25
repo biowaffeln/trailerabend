@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
 import { Movie, ResultsMovie } from '../../../models/movie.model';
 import { User } from '../../../models/user.model';
-import { flatMap, map } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-live-results',
@@ -17,7 +17,7 @@ export class LiveResultsComponent implements OnInit {
 
   ngOnInit() {
     this.db.col$<User>('/users').pipe(
-      flatMap(users => {
+      switchMap(users => {
         const userResults = users.reduce((acc, user) => {
           if (!user.votes || Object.keys(user.votes).length === 0) {
             return {};
