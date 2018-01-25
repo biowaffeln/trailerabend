@@ -1,5 +1,5 @@
 <div class="margin center">
-  <app-loader [type]="spinner" [data]="loaded" *ngIf="user?.voted === false; else voted">
+  <app-loader [type]="spinner" [data]="loaded" *ngIf="user?.voted === false;">
     <ng-template>
       <form [formGroup]="votingForm">
         <div formArrayName="movies">
@@ -15,10 +15,8 @@
       </form>
     </ng-template>
   </app-loader>
-  <ng-template #voted>
-    <div class="voted-text">
-      <h1 class="voted-text__header">Danke für's Wählen, bis zum nächsten Trailerabend!</h1>
-      <span class="voted-text__emoji" role="img" aria-label="Party Popper">🎉</span>
-    </div>
-  </ng-template>
+  <div class="voted-text" *ngIf="user?.voted === true">
+    <h1 class="voted-text__header">Danke für's Wählen, bis zum nächsten Trailerabend!</h1>
+    <span class="voted-text__emoji" role="img" aria-label="Party Popper">🎉</span>
+  </div>
 </div>
