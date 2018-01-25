@@ -5,7 +5,7 @@ import { VisitorGuard } from '../../guards/visitor.guard';
 
 const routes: Routes = [
   {
-    path: 'login', component: LoginComponent, canActivate: [VisitorGuard]
+    path: '', component: LoginComponent
   }
 ];
 
