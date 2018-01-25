@@ -17,7 +17,6 @@ import { MatButtonModule } from '@angular/material';
     MatButtonModule,
     FormsModule, ReactiveFormsModule,
     LoaderModule,
-    GuardsModule
   ],
   declarations: [VotingComponent]
 })

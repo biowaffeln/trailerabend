@@ -10,19 +10,19 @@ import { LiveResultsComponent } from './live-results/live-results.component';
 
 const routes: Routes = [
   {
-    path: 'admin', component: AdminComponent, canActivate: [NoAdminGuard]
+    path: '', component: AdminComponent, canActivate: [NoAdminGuard]
   },
   {
-    path: 'admin/dashboard', component: DashboardComponent, canActivate: [AdminGuard]
+    path: 'dashboard', component: DashboardComponent, canActivate: [AdminGuard]
   },
   {
-    path: 'admin/movies', component: MoviesComponent, canActivate: [AdminGuard]
+    path: 'movies', component: MoviesComponent, canActivate: [AdminGuard]
   },
   {
-    path: 'admin/user-list', component: UserListComponent, canActivate: [AdminGuard]
+    path: 'user-list', component: UserListComponent, canActivate: [AdminGuard]
   },
   {
-    path: 'admin/live', component: LiveResultsComponent, canActivate: [AdminGuard]
+    path: 'live', component: LiveResultsComponent, canActivate: [AdminGuard]
   }
 ];
 

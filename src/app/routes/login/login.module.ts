@@ -17,7 +17,6 @@ import { FirestoreModule } from '../../services/firestore/firestore.module';
     FormsModule, ReactiveFormsModule,
     FirestoreModule,
     AuthServiceModule,
-    GuardsModule
   ],
   declarations: [LoginComponent]
 })

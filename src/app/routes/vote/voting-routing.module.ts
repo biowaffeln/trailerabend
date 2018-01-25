@@ -5,7 +5,7 @@ import { VotingComponent } from './voting.component';
 
 const routes: Routes = [
   {
-    path: 'vote', component: VotingComponent, canActivate: [UserGuard]
+    path: '', component: VotingComponent
   }
 ];
 
