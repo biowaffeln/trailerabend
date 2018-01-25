@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class UserListComponent implements OnInit, OnDestroy {
 
   userDataSource: MatTableDataSource<User>;
-  displayedCols = ['userName', 'voted', 'details'];
+  displayedCols = ['userName', 'voted', 'id'];
   loaded = false;
 
   private onDestroy$ = new Subject<void>();

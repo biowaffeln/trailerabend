@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    RouterModule,
     LoaderModule
   ],
   declarations: [UserListComponent],

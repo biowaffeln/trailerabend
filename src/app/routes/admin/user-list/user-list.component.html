@@ -11,18 +11,14 @@
               <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
               <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
             </ng-container>
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
+            </ng-container>
             <ng-container matColumnDef="voted">
               <mat-header-cell *matHeaderCellDef> Gewählt? </mat-header-cell>
               <mat-cell *matCellDef="let user">
                 {{user.voted ? 'ja' : 'nein'}}
-              </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="details">
-              <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
-              <mat-cell *matCellDef="let user">
-                <a mat-raised-button color="primary" [routerLink]="[user.id]">
-                  Details anzeigen
-                </a>
               </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedCols"></mat-header-row>
