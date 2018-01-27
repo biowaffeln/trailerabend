@@ -1,20 +1,19 @@
 @import '~normalize.css/normalize.css';
 @import '~@angular/material/theming';
 @include mat-core();
-
 $filmrausch-primary: mat-palette($mat-amber);
-$filmrausch-accent:  mat-palette($mat-deep-orange);
-$filmrausch-warn:    mat-palette($mat-red);
+$filmrausch-accent: mat-palette($mat-deep-orange);
+$filmrausch-warn: mat-palette($mat-red);
 $filmrausch-theme: mat-light-theme($filmrausch-primary, $filmrausch-accent, $filmrausch-warn);
 @include angular-material-theme($filmrausch-theme);
-
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700|Open+Sans');
-
 body {
   background: #222220;
 }
 
-div, p, span {
+div,
+p,
+span {
   font-family: 'Open Sans', sans-serif;
 }
 
