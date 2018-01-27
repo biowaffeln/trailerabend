@@ -37,7 +37,9 @@ export class AddMovieComponent implements OnInit {
     return obj.every(movie => {
       return (
         typeof movie.trailerlink === 'string' &&
-        typeof movie.name === 'string'
+        typeof movie.name === 'string' &&
+        typeof movie.year === 'number' &&
+        typeof movie.special === 'string'
       );
     });
   }

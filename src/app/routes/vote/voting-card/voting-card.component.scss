@@ -2,10 +2,20 @@
 .mat-card {
   max-width: 500px;
   margin: 0 auto;
-  .mat-card-title {
+  .mat-card-title-group {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    font: 2em 'Catamaran', sans-serif;
-    font-weight: bold;
+    margin: 10px 0 20px;
+    .mat-card-title {
+      font: 2em 'Catamaran', sans-serif;
+      line-height: 1.3em;
+      font-weight: bold;
+      margin: 0 20px 5px;
+    }
+    .mat-card-subtitle {
+      font-size: 1.3em;
+    }
   }
   .mat-card-content {
     display: flex;

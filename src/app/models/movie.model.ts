@@ -5,6 +5,7 @@ export interface Movie {
   name: string;
   year: number;
   trailerlink: string;
+  special: string;
 }
 
 export interface VoteMovie extends Movie {
