@@ -14,6 +14,9 @@ const routes: Routes = [
     path: 'vote', component: VotingComponent, canActivate: [UserGuard]
   },
   {
+    path: 'playlist', loadChildren: './routes/playlist/playlist.module#PlaylistModule'
+  },
+  {
     path: 'admin', loadChildren: './routes/admin/admin.module#AdminModule'
   },
   {
