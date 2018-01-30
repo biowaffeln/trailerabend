@@ -39,18 +39,8 @@ span {
   }
 }
 
-.flex-grid-thirds {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .col {
-    width: 32%;
-    margin: 10px 0;
-  }
-}
-
 @media (max-width: 600px) {
-  .flex-grid, .flex-grid-thirds {
+  .flex-grid {
     display: block;
     .col {
       width: 100%;
