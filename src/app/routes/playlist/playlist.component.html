@@ -1,7 +1,6 @@
 <div class="video margin center">
-  <iframe
-    class="mat-elevation-z5"
-   width="560" height="315" *ngIf="currentLink" [src]="currentLink" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+  <iframe class="mat-elevation-z5" width="560" height="315" *ngIf="currentLink" [src]="currentLink" frameborder="0" allow="encrypted-media"
+    allowfullscreen></iframe>
   <div class="video__actions">
     <button mat-raised-button (click)="changeIndex(-1)">zurück</button>
     <button mat-raised-button (click)="changeIndex(1)">weiter</button>
