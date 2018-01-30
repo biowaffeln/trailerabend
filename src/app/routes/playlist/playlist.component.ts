@@ -65,7 +65,8 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 const embedUrl = (url: string): string => {
   const baseUrl = 'https://www.youtube.com/embed/';
   const id = parseId(url);
-  return id ? baseUrl + id : '';
+  const options = '?rel=0';
+  return id ? baseUrl + id + options : '';
 }
 
 const parseId = (url: string): string | false => {
