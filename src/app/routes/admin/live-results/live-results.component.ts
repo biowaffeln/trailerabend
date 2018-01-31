@@ -44,11 +44,7 @@ export class LiveResultsComponent implements OnInit {
       })
     ).subscribe(movies => {
       this.movies = movies.sort((a, b) => {
-        const forVotes = b.results.for - a.results.for;
-        if (forVotes !== 0) { return forVotes; }
-        else {
-          return b.results.neutral - a.results.neutral;
-        }
+        return (a.results.for * 2 + a.results.for) - (b.results.for * 2 + b.results.for);
       });
     });
   }
