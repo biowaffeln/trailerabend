@@ -6,6 +6,7 @@
     <app-loader [data]="movies" [type]="spinner">
       <ng-template>
         <mat-card-content>
+          <mat-checkbox [formControl]="filterCompletedInput" class="filter">nur abgeschlossene Umfragen</mat-checkbox>
           <table class="results mat-elevation-z4">
             <thead>
               <tr>

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
 import { Movie, ResultsMovie } from '../../../models/movie.model';
 import { User } from '../../../models/user.model';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, map, startWith } from 'rxjs/operators';
 import { LoaderType } from '../../../shared/loader/loader.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-live-results',
@@ -14,11 +15,19 @@ export class LiveResultsComponent implements OnInit {
 
   movies: ResultsMovie[];
   spinner = LoaderType.SPINNER;
+  filterCompletedInput = new FormControl();
 
   constructor(private db: FirestoreService) { }
 
   ngOnInit() {
+
+    const filter$ = this.filterCompletedInput.valueChanges;
+
     this.db.col$<User>('/users').pipe(
+      flatMap(users => filter$.pipe(
+        startWith(false),
+        map(filter => filter ? users.filter(user => user.voted) : users)
+      )),
       flatMap(users => {
         const userResults = users.reduce((acc, user) => {
           if (!user.votes || Object.keys(user.votes).length === 0) {
