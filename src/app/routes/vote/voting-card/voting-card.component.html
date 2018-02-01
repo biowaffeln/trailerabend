@@ -11,11 +11,11 @@
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
-    <button (click)="toggleVote(FOR)" [class.for]="movie.vote === FOR">
+    <button mat-button (click)="toggleVote(FOR)" [class.for]="movie.vote === FOR">
       dafür
       <span role="img" aria-label="Thumbs Up">👍</span>
     </button>
-    <button (click)="toggleVote(AGAINST)" [class.against]="movie.vote === AGAINST">
+    <button mat-button (click)="toggleVote(AGAINST)" [class.against]="movie.vote === AGAINST">
       dagegen
       <span role="img" aria-label="Thumbs Down">👎</span>
     </button>
