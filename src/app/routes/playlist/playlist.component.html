@@ -1,8 +1,10 @@
 <div class="video margin center">
   <app-loader [data]="loaded" [type]="spinner">
     <ng-template>
-      <iframe class="mat-elevation-z5" width="560" height="315" *ngIf="currentLink" [src]="currentLink" frameborder="0" allow="encrypted-media"
-        allowfullscreen></iframe>
+      <div class="video__wrapper">
+        <iframe class="mat-elevation-z5" width="560" height="315" *ngIf="currentLink" [src]="currentLink" frameborder="0" allow="encrypted-media"
+          allowfullscreen></iframe>
+      </div>
       <div class="video__actions">
         <button mat-raised-button (click)="changeIndex(-1)" [disabled]="linkIndex === 0">zurück</button>
         <button mat-raised-button (click)="changeIndex(1)" [disabled]="linkIndex === links.length - 1">weiter</button>
