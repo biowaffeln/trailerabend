@@ -53,7 +53,10 @@ export class LiveResultsComponent implements OnInit {
       })
     ).subscribe(movies => {
       this.movies = movies.sort((a, b) => {
-        return (b.results.for * 2 + b.results.neutral) - (a.results.for * 2 + a.results.neutral);
+        const diff = (b.results.for * 2 + b.results.neutral) - (a.results.for * 2 + a.results.neutral);
+        if (diff === 0) {
+          return b.results.for - a.results.for;
+        }
       });
     });
   }
