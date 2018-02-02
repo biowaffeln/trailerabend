@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     button {
-      transition: background 0.5s;
+      transition: background 0.3s;
       margin: 3px;
       background: #ddd;
       width: 110px;
@@ -39,5 +39,14 @@
     align-items: flex-end;
     margin-top: 40px;
     border-top: 1px solid rgba(0, 0, 0, .12);
+  }
+}
+
+@media (max-width: 600px) {
+  .mat-card-content {
+    button {
+      padding: 3px;
+      box-sizing: border-box;
+    }
   }
 }
