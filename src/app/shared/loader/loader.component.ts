@@ -6,15 +6,12 @@ import { LoaderType } from './loader.model';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent {
 
   @Input() data: any;
   @Input() type = LoaderType.BAR;
   @ContentChild(TemplateRef) contentRef;
   
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
