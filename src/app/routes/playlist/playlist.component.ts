@@ -6,6 +6,7 @@ import { takeUntil, map } from 'rxjs/operators';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { combineLatest } from 'rxjs/observable/combineLatest';
+import { LoaderType } from '../../shared/loader/loader.model';
 
 @Component({
   selector: 'app-playlist',
@@ -19,6 +20,8 @@ export class PlaylistComponent implements OnInit, OnDestroy {
   links: SafeUrl[];
   currentLink: SafeUrl;
   linkIndex$ = new BehaviorSubject<number>(0);
+  loaded = false;
+  spinner = LoaderType.SPINNER;
 
   constructor(private db: FirestoreService, private sanitizer: DomSanitizer) { }
 
@@ -40,6 +43,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     .subscribe(([links, index]) => {
       this.links = links;
       this.currentLink = links[index];
+      this.loaded = true;
     });
   }
 

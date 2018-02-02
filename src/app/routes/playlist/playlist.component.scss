@@ -4,12 +4,22 @@
   align-items: center;
   .video__actions {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 3px;
+    }
   }
   .video__number {
     p {
       color: #eee;
       font-size: 2em;
       margin: 0;
+      text-align: center;
     }
+  }
+  .video-wrapper {
+    max-width: 90vw;
+    overflow: hidden;
   }
 }
