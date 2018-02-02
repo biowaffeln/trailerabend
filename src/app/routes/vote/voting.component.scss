@@ -1,6 +1,10 @@
 .submit {
   display: flex;
   justify-content: center;
+  .submit__button {
+    font-size: 1.2em;
+    padding: 5px 20px;
+  }
 }
 
 .voted-text {
