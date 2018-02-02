@@ -15,7 +15,7 @@ export class VisitorGuard implements CanActivate {
     return this.authService.authState.pipe(
       map(user => user === null),
       tap(isVisitor => {
-        if(!isVisitor) {
+        if (!isVisitor) {
           this.router.navigate(['vote']);
         }
       })

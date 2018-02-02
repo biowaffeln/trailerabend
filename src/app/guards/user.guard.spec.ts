@@ -22,6 +22,6 @@ describe('UserGuard', () => {
     it('should reject unregistered users', inject([UserGuard], (guard: UserGuard) => {
     guard.canActivate().subscribe(res => {
       expect(res).toBeFalsy();
-    })
+    });
   }));
 });

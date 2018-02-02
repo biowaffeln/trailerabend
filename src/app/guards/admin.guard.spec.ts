@@ -22,6 +22,6 @@ describe('AdminGuard', () => {
   it('should reject unregistered users', inject([AdminGuard], (guard: AdminGuard) => {
     guard.canActivate().subscribe(res => {
       expect(res).toBeFalsy();
-    })
+    });
   }));
 });

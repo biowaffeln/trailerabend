@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { User } from '../../../../models/user.model';
 import { FirestoreService } from '../../../../services/firestore.service';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './user-overview.component.html',
   styleUrls: ['./user-overview.component.scss']
 })
-export class UserOverviewComponent implements OnInit {
+export class UserOverviewComponent implements OnInit, OnDestroy {
 
   users: User[];
   private onDestroy$ = new Subject<void>();

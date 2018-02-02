@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirestoreService } from '../../../../services/firestore.service';
 import { Movie } from '../../../../models/movie.model';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

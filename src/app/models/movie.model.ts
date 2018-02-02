@@ -1,4 +1,4 @@
-import { Vote } from "./votes.model";
+import { Vote } from './votes.model';
 
 export interface Movie {
   id?: string;
@@ -17,5 +17,5 @@ export interface ResultsMovie extends Movie {
     for: number;
     against: number;
     neutral: number;
-  }
+  };
 }

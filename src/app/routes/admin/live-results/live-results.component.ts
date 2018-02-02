@@ -47,7 +47,7 @@ export class LiveResultsComponent implements OnInit {
             return ({
               ...movie,
               results: results ? results : { for: 0, against: 0, neutral: 0 }
-            })
+            });
           }) as ResultsMovie[])
         );
       })

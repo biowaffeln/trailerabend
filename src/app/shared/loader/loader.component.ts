@@ -11,7 +11,7 @@ export class LoaderComponent {
   @Input() data: any;
   @Input() type = LoaderType.BAR;
   @ContentChild(TemplateRef) contentRef;
-  
+
   constructor() { }
 
 }

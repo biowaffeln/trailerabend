@@ -1,5 +1,5 @@
 export interface Votes {
-  [movieId: string]: Vote
+  [movieId: string]: Vote;
 }
 
 export enum Vote {

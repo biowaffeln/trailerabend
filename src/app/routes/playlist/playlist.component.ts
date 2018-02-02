@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
 import { Movie } from '../../models/movie.model';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil, map } from 'rxjs/operators';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -16,7 +16,7 @@ import { LoaderType } from '../../shared/loader/loader.model';
 export class PlaylistComponent implements OnInit, OnDestroy {
 
   private onDestroy$ = new Subject<void>();
-  
+
   links: SafeUrl[];
   currentLink: SafeUrl;
   linkIndex$ = new BehaviorSubject<number>(0);
@@ -26,25 +26,25 @@ export class PlaylistComponent implements OnInit, OnDestroy {
   constructor(private db: FirestoreService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    
+
     const links$ = this.db.col$<Movie>('/movies').pipe(
       map(movies => {
         return movies.map(movie => {
-          return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl(movie.trailerlink))
+          return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl(movie.trailerlink));
         });
       })
     );
-    
+
     const index$ = this.linkIndex$.asObservable();
 
     combineLatest(links$, index$).pipe(
       takeUntil(this.onDestroy$)
     )
-    .subscribe(([links, index]) => {
-      this.links = links;
-      this.currentLink = links[index];
-      this.loaded = true;
-    });
+      .subscribe(([links, index]) => {
+        this.links = links;
+        this.currentLink = links[index];
+        this.loaded = true;
+      });
   }
 
   ngOnDestroy(): void {
@@ -71,10 +71,10 @@ const embedUrl = (url: string): string => {
   const id = parseId(url);
   const options = '?rel=0';
   return id ? baseUrl + id + options : '';
-}
+};
 
 const parseId = (url: string): string | false => {
   const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
   const match = url.match(regExp);
-  return (match && match[7].length == 11) ? match[7] : false;
-}
+  return (match && match[7].length === 11) ? match[7] : false;
+};

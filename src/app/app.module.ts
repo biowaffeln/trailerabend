@@ -21,7 +21,7 @@ import { VotingModule } from './routes/vote/voting.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    AppRoutingModule,    
+    AppRoutingModule,
     LoginModule,
     VotingModule,
     AdminModule,

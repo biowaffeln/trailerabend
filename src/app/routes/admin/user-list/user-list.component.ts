@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatSlideToggleChange } from '@angular/material';
 import { User } from '../../../models/user.model';
 import { FirestoreService } from '../../../services/firestore.service';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

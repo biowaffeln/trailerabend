@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import { take, takeUntil, tap } from 'rxjs/operators';
 import { FirestoreService } from '../../services/firestore.service';
 import { Movie, VoteMovie } from '../../models/movie.model';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Vote } from '../../models/votes.model';
 import { switchMap } from 'rxjs/operators/switchMap';
@@ -37,7 +37,7 @@ export class VotingComponent implements OnInit, OnDestroy {
       takeUntil(this.onDestroy$)
     ).subscribe(({ movies }: { movies: VoteMovie[] }) => {
       const votes = movies.reduce((acc, movie) => {
-        acc[movie.id] = movie.vote
+        acc[movie.id] = movie.vote;
         return acc;
       }, {});
       this.db.update<User>(`users/${this.uid}`, { votes });
@@ -57,7 +57,7 @@ export class VotingComponent implements OnInit, OnDestroy {
               const vote: VoteMovie = {
                 ...movie,
                 vote: this.user.votes[movie.id] ? this.user.votes[movie.id] : Vote.NEUTRAL
-              }
+              };
               return new FormControl(vote);
             })
           )

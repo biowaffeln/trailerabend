@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { FirestoreService } from '../../../../services/firestore.service';
 import { Movie } from '../../../../models/movie.model';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -29,7 +29,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.movieDataSource.data = movies;
       this.loaded = true;
     });
-    
+
   }
 
   ngOnDestroy() {

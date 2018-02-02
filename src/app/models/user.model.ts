@@ -1,4 +1,4 @@
-import { Votes } from "./votes.model";
+import { Votes } from './votes.model';
 
 export interface User {
   id?: string;
